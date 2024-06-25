@@ -1,8 +1,8 @@
 name: Monthly issue metrics
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '3 2 1 * *'
+  # schedule:
+    # - cron: '3 2 1 * *'
 
 permissions:
   contents: read
@@ -32,7 +32,7 @@ jobs:
       uses: github/issue-metrics@v3
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SEARCH_QUERY: 'repo:owner/repo is:issue created:${{ env.last_month }} -reason:"not planned"'
+        SEARCH_QUERY: 'repo:parkess2000/Sarahe-Shop is:issue created:${{ env.last_month }} -reason:"not planned"'
 
     - name: Create issue
       uses: peter-evans/create-issue-from-file@v5
